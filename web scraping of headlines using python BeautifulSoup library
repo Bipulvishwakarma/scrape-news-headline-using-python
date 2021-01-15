@@ -1,0 +1,8 @@
+import requests
+from bs4 import BeautifulSoup             #importing library 
+#url='https://www.mohfw.gov.in/'
+z=requests.get('https://timesofindia.indiatimes.com/')   #url
+htmlContent=z.content
+soup=BeautifulSoup(htmlContent,'html.parser')
+headlines=soup.find('div',class_="top-story").get_text()
+print(headlines)
